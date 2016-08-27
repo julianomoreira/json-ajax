@@ -21,27 +21,33 @@
 </script>
 <script>
 $(function(){
+
   var myContainer = "";
-  var a = new XMLHttpRequest();
-  a.open("GET","https://api.myjson.com/bins/1a10f", true); // you change the 2nd param to a URL or local file
-  a.onreadystatechange = function(){
-    if (this.readyState == 4){
-      var obj = JSON.parse(this.responseText)
-      console.log(obj);
-      for(i=0; i < obj.length; i++){
-        myContainer += obj[i].first_name + " " + obj[i].last_name + " is " + obj[i].age + " years old. " + "<br>";
-      }
-      document.getElementById("output").innerHTML = myContainer;
-    }
-    //console.log(a);
-  }
-  a.send();
-  //console.log(a);
+	document.getElementById("myBtn").addEventListener("click", myFun);
+	function myFun(){
+		var myTxt = document.getElementById("myText").value;
+		// Ajax connection
+		var a = new XMLHttpRequest();
+		a.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200) {
+				// console.log(this.responseText);
+				//myContainer += this.responseText;
+				document.getElementById("output").innerHTML = this.responseText;
+			}
+
+		}
+		a.open("POST","data4.php", true); // you change the 2nd param to a URL or local file
+		a.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		a.send("name=" + myTxt);
+	}
+
 });
 </script>
 
 </head>
 <body>
   <div id="output" class="out">Nothing</div>
+	<button id="myBtn">get data</button>
+	<input type="text" id="myText" value="Hello" />
 </body>
 </html>
