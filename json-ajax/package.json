@@ -1,0 +1,62 @@
+{
+  "name": "html5-boilerplate",
+  "private": true,
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "1.1.1",
+    "apache-server-configs": "2.14.0",
+    "archiver": "0.21.0",
+    "autoprefixer": "6.3.1",
+    "browser-sync": "2.11.1",
+    "cheerio": "^0.20.0",
+    "del": "2.0.2",
+    "glob": "6.0.1",
+    "gulp": "3.8.11",
+    "gulp-autoprefixer": "3.0.2",
+    "gulp-header": "1.2.2",
+    "gulp-if": "^2.0.1",
+    "gulp-jscs": "3.0.1",
+    "gulp-jshint": "2.0.0",
+    "gulp-load-plugins": "1.1.0",
+    "gulp-postcss": "6.0.1",
+    "gulp-prompt": "^0.2.0",
+    "gulp-rename": "1.2.0",
+    "gulp-replace": "0.5.3",
+    "gulp-rsync": "0.0.6",
+    "gulp-sass": "2.2.0",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-ssh": "^0.5.5",
+    "gulp-util": "^3.0.7",
+    "highlight.js": "9.2.0",
+    "jquery": "1.12.0",
+    "jshint": "2.8.0",
+    "jshint-stylish": "2.0.1",
+    "markdown-it": "^6.0.1",
+    "markdown-it-attrs": "^0.6.0",
+    "minimist": "^1.2.0",
+    "mocha": "2.2.4",
+    "normalize.css": "3.0.3",
+    "remarkable": "1.6.2",
+    "requirejs": "^2.2.0",
+    "run-sequence": "1.0.2",
+    "untildify": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "configs": {
+    "paths": {
+      "archive": "archive",
+      "dist": "dist",
+      "src": "src",
+      "test": "test",
+      "lib": "lib",
+      "public": {
+        "root": "dist"
+      }
+    }
+  }
+}
