@@ -1,0 +1,59 @@
+<html dir="ltr" lang="en-US">
+<head>
+		<title>
+				 JSON Exercise
+		</title>
+		<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="json.js"></script>
+
+<script>
+// $(function(){
+//   var container = "";
+//   var jsonData = '[{"_id":"57c0ec8b3eecb9b463a6b8cb","index":0,"guid":"24fa58ef-53e2-4c2e-a492-f5c68af33d71","isActive":false,"balance":"$3,969.82","picture":"http://placehold.it/32x32","age":27,"eyeColor":"green","name":"Kendra Briggs","gender":"female","company":"XPLOR","email":"kendrabriggs@xplor.com","phone":"+1 (937) 585-2822","address":"632 Foster Avenue, Nord, California, 9798"}, {"_id":"57c0ecc7bbb159de445d1621","index":0,"guid":"0fc51cc0-3022-447b-9925-d803b89938e2","isActive":false,"balance":"$2,045.29","picture":"http://placehold.it/32x32","age":20,"eyeColor":"blue","name":"Carroll Harmon","gender":"male","company":"RETROTEX","email":"carrollharmon@retrotex.com","phone":"+1 (958) 585-2067","address":"518 Hull Street, Calpine, Washington, 7085"},{"_id":"57c0eceeb74a8e284191cbe1","index":0,"guid":"e3e3a886-9bc0-4ffc-907f-9a40a71c7f11","isActive":true,"balance":"$1,936.27","picture":"http://placehold.it/32x32","age":20,"eyeColor":"green","name":"Sofia Knight","gender":"female","company":"SUREPLEX","email":"sofiaknight@sureplex.com","phone":"+1 (998) 505-2737","address":"266 Gilmore Court, Ona, Idaho, 5798"}]';
+//   var obj = JSON.parse(jsonData);
+//   console.log(obj);
+//   for(i=0; i < obj.length; i++){
+//     container += obj[i].name + ' ' + obj[i].address + '<br>';
+//     //console.log(obj);
+//   }
+//   document.getElementById("output").innerHTML = container;
+// });
+</script>
+<script>
+$(function(){
+
+  var myContainer = "";
+	document.getElementById("myBtn").addEventListener("click", myFun);
+	function myFun(){
+		var myTxt = document.getElementById("myText").value;
+		var myAge = document.getElementById("myAge").value;
+		// Ajax connection
+		var a = new XMLHttpRequest();
+		a.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200) {
+				// console.log(this.responseText);
+				//myContainer += this.responseText;
+				document.getElementById("output").innerHTML = this.responseText;
+			}
+
+		}
+		a.open("POST","data5.php", true); // you change the 2nd param to a URL or local file
+		a.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		a.send("name=" + myTxt + "&age=" + ' ' + myAge);
+	}
+
+});
+</script>
+
+</head>
+<body>
+  <div id="output" class="out">Nothing sent yet</div>
+	<br />
+	<input type="text" id="myText" value="" placeholder="name"/>
+	<br />
+	<input type="number" id="myAge" value="" placeholder="name"/>
+	<br />
+	<button id="myBtn">get data</button>
+
+</body>
+</html>
